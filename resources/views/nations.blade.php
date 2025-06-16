@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Transferts - ActuFoot360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow p-6 text-center">
+      <div class="flex justify-center mb-4">
+        <img src="{{ asset('images/actufoot.png') }}" alt="Logo" class="h-24 w-auto">
+      </div>
+      <nav class="mt-4 space-x-6">
+        <a href="/" class="text-black hover:text-green-600 font-sans uppercase">ACTUALITÉS</a>
+        <a href="{{ route('transferts') }}" class="text-black hover:text-green-600 font-sans uppercase">TRANSFERT</a>
+        <a href="{{ route('champions') }}" class="text-black hover:text-green-600 font-sans uppercase">LIGUE DES CHAMPIONS</a>
+        <a href="{{ route('palmares') }}" class="text-black hover:text-green-600 font-sans uppercase">PALMARÈS</a>
+        <a href="{{ route('nations') }}" class="text-green-600 font-sans uppercase font-bold">LIGUE DES NATIONS</a>
+        <a href="{{ route('videos') }}" class="text-black hover:text-green-600 font-sans uppercase">VIDÉOS</a>
+      </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6">
+
+       <!-- Les dernières infos concernant la Ligues des Nations -->
+       <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
+        <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos concernant la ligue des Nations →</h2>
+        <a href="/actualites" class="text-green-600 hover:underline text-sm">Voir tout →</a>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          @foreach ($nations as $nation)
+          <div class="border border-gray-300 rounded p-4 shadow hover:shadow-lg transition">
+              @if ($nation->image)
+                  <img src="{{ $nation->image }}" alt="#" class="w-full h-40 object-cover rounded mb-4">
+              @endif
+              <h3 class="text-xl font-bold mb-2">{{ $nation->titre }}</h3>  <!-- <-- Ajout du titre ici -->
+              <p class="text-gray-700 mb-4">{{ Str::limit(strip_tags(html_entity_decode($nation->contenu)), 100) }}</p>
+              <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
+                  En savoir plus
+              </button>
+          </div>
+      @endforeach
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-16">
+      <div class="max-w-4xl mx-auto px-6 py-10 text-center text-gray-700 flex flex-col items-center">
+        
+        <div class="flex justify-center mb-4">
+          <img src="{{ asset('images/actufoot.png') }}" alt="Logo" class="h-24 w-auto">
+        </div>
+
+        <p class="text-sm mb-6 max-w-md">
+          Le meilleur de l'actualité foot : transferts, Ligue des Champions, Ligue des Nations, vidéos, palmarès et plus encore.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6 text-sm mb-6">
+          <a href="/" class="hover:underline">Actualités</a>
+          <a href="/transfert" class="hover:underline font-bold">Transferts</a>
+          <a href="/champions-league" class="hover:underline">Ligue des Champions</a>
+          <a href="/palmares" class="hover:underline">Palmarès</a>
+          <a href="/nations-league" class="hover:underline">Ligue des Nations</a>
+          <a href="/videos" class="hover:underline">Vidéos</a>
+        </div>
+
+        <div class="flex justify-center space-x-6 text-sm mb-6">
+          <a href="#" class="hover:underline">Twitter</a>
+          <a href="#" class="hover:underline">Instagram</a>
+          <a href="#" class="hover:underline">YouTube</a>
+        </div>
+
+        <p class="text-xs text-gray-500">&copy; {{ date('Y') }} ActuFoot360 — Tous droits réservés.</p>
+      </div>
+    </footer>
+
+</body>
+</html>

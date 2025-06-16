@@ -8,7 +8,7 @@ class ChampionsLeagueController extends Controller
 {
     public function index()
     {
-        $champions = ChampionsLeague::latest()->paginate(6);
-        return view('champions-league', compact('champions'));
+        $champions = ChampionsLeague::latest()->take(9)->get();
+        return view('champions', compact('champions'));
     }
 }

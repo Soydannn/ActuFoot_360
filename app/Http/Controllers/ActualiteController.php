@@ -15,6 +15,7 @@ class ActualiteController extends Controller
 {
     public function index()
     {
+        
         // Récupère la dernière actualité
 
         $lastActualite = Actualite::orderBy('created_at', 'desc')->first();
@@ -36,7 +37,7 @@ class ActualiteController extends Controller
 
 
 
-        
+
         
         // Récupère les 3 dernières actualités après la première
         $recentActus = Actualite::latest()->skip(1)->take(3)->get();
@@ -59,9 +60,12 @@ class ActualiteController extends Controller
     }
 
     public function show($id)
-    {
-        $article = Actualite::findOrFail($id);
-        return view('actualite-detail', compact('article'));
-    }
+{
+    // Trouver l'article par son id ou afficher erreur 404
+    $article = Actualite::findOrFail($id);
+
+    // Passer cet article à la vue 'actualites-detail'
+    return view('actualites-detail', compact('article'));
+}
 }
 

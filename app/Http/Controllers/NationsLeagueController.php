@@ -8,7 +8,7 @@ class NationsLeagueController extends Controller
 {
     public function index()
     {
-        $nations = NationsLeague::latest()->paginate(6);
-        return view('nations-league', compact('nations'));
+        $nations = NationsLeague::latest()->paginate(9);
+        return view('nations', compact('nations'));
     }
 }

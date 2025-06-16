@@ -7,6 +7,7 @@ use App\Http\Controllers\TransfertController;
 use App\Http\Controllers\PalmaresController;
 use App\Http\Controllers\ChampionsLeagueController;
 use App\Http\Controllers\NationsLeagueController;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +20,20 @@ use App\Http\Controllers\NationsLeagueController;
 |
 */
 
-Route::get('/', [ActualiteController::class, 'index'])->name('actualites.index');
+Route::get('/', [ActualiteController::class, 'index'])->name('actualites');
 
 Route::get('/actualites/{id}', [ActualiteController::class, 'show'])->name('actualites.show');
 
-Route::get('/transferts', [TransfertController::class, 'index'])->name('transferts.index');
+Route::get('/transferts', [TransfertController::class, 'index'])->name('transferts');
 
-Route::get('/palmares', [PalmaresController::class, 'index'])->name('palmares.index');
+Route::get('/palmares', [PalmaresController::class, 'index'])->name('palmares');
 
-Route::get('/champions-league', [ChampionsLeagueController::class, 'index'])->name('champions.index');
+Route::get('/champions', [ChampionsLeagueController::class, 'index'])->name('champions');
 
-Route::get('/nations-league', [NationsLeagueController::class, 'index'])->name('nations.index');
+Route::get('/nations', [NationsLeagueController::class, 'index'])->name('nations');
+
+Route::get('/videos', [VideoController::class, 'index'])->name('videos');
+
 
 
 
