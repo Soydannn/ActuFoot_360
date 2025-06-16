@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Actualités - ActuFoot360</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -10,13 +10,13 @@
     <!-- Header -->
     <header class="bg-white shadow p-6 text-center">
         <h1 class="text-3xl font-bold text-green-600">ActuFoot360</h1>
-        <nav class="mt-4 space-x-4">
-            <a href="/" class="text-black hover:text-green-600">ACTUALITÉS</a>
-            <a href="/transfert" class="text-black hover:text-green-600">TRANSFERT</a>
-            <a href="/champions-league" class="text-black hover:text-green-600">LIGUE DES CHAMPIONS</a>
-            <a href="/palmares" class="text-black hover:text-green-600">PALMARÈS</a>
-            <a href="/nations-league" class="text-black hover:text-green-600">NATIONS LEAGUE</a>
-            <a href="/nations-league" class="text-black hover:text-green-600">VIDÉOS </a>
+        <nav class="mt-4 space-x-6">
+            <a href="/" class="text-black hover:text-green-600 hover:underline font-sans uppercase">ACTUALITÉS</a>
+            <a href="/transfert" class="text-black hover:text-green-600 hover:underline font-sans uppercase">TRANSFERT</a>
+            <a href="/champions-league" class="text-black hover:text-green-600 hover:underline font-sans uppercase">LIGUE DES CHAMPIONS</a>
+            <a href="/palmares" class="text-black hover:text-green-600 hover:underline font-sans uppercase">PALMARÈS</a>
+            <a href="/nations-league" class="text-black hover:text-green-600 hover:underline font-sans uppercase">NATIONS LEAGUE</a>
+            <a href="/videos" class="text-black hover:text-green-600 hover:underline font-sans uppercase">VIDÉOS</a>
         </nav>
     </header>
 
@@ -28,12 +28,13 @@
             <h2 class="text-2xl font-bold text-green-600 mb-4">À la une</h2>
             <div class="bg-white shadow p-6 rounded-lg">
                 @if ($lastActu->image)
-                    <img src="{{ $lastActu->image }}" alt="{{ $lastActu->titre }}" class="w-full h-64 object-cover mb-4 rounded">
+                    <img src="{{ $lastActu->image }}" alt="{{ $lastActu->titre }}" class="w-full h-64 object-cover mb-4 rounded" />
                 @endif
                 <h3 class="text-xl font-bold mb-2">{{ $lastActu->titre }}</h3>
-                <p class="text-sm text-gray-600 mb-2">Catégorie : {{ $lastActu->categorie }}</p>
+                @if(!empty($lastActu->categorie))
+                    <p class="text-sm text-gray-600 mb-2">Catégorie : {{ $lastActu->categorie }}</p>
+                @endif
                 <p class="mb-4">{{ Str::limit(strip_tags($lastActu->contenu), 150) }}</p>
-                <a href="{{ route('actualites.show', $lastActu->id) }}" class="text-green-600 hover:underline">En savoir plus</a>
             </div>
         </section>
         @endif
@@ -45,16 +46,76 @@
                 @foreach ($recentActus as $actu)
                     <div class="bg-white shadow p-4 rounded-lg">
                         @if ($actu->image)
-                            <img src="{{ $actu->image }}" alt="{{ $actu->titre }}" class="w-full h-40 object-cover mb-3 rounded ">
+                            <img src="{{ $actu->image }}" alt="{{ $actu->titre }}" class="w-full h-40 object-cover mb-3 rounded" />
                         @endif
                         <h3 class="text-lg font-bold">{{ $actu->titre }}</h3>
-                        <p class="text-sm text-gray-600">Catégorie : {{ $actu->categorie }}</p>
+                        @if(!empty($actu->categorie))
+                            <p class="text-sm text-gray-600">Catégorie : {{ $actu->categorie }}</p>
+                        @endif
                         <p class="text-sm mt-2 mb-3">{{ Str::limit(strip_tags($actu->contenu), 100) }}</p>
-                        <a href="{{ route('actualites.show', $actu->id) }}" class="text-green-600 hover:underline text-sm">En savoir plus</a>
                     </div>
                 @endforeach
             </div>
         </section>
+
+        <!-- Les 3 derniers transferts -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-green-600 mb-4">Les derniers transferts →</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                @foreach ($transferts as $transfert)
+                    <div class="bg-white border border-gray-300 rounded p-4 shadow hover:shadow-lg transition">
+                        @if ($transfert->image)
+                            <img src="{{ $transfert->image }}" alt="{{ $transfert->titre }}" class="w-full h-40 object-cover rounded mb-4" />
+                        @endif
+                        <p class="text-gray-700">
+                          {{ Str::limit(strip_tags(html_entity_decode($transfert->description)), 100) }}
+                        </p>
+                        <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
+                          En savoir plus
+                      </button>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+
+
+        <!-- Les dernières infos de la Ligue des Champions -->
+      <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
+       <h2 class="text-2xl font-semibold text-green-600 mb-6">Les dernières infos de la Ligue des Champions →</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @foreach ($champions as $champion)
+              <div class="border border-gray-300 rounded p-4 shadow hover:shadow-lg transition">
+              @if ($champion->image)
+                  <img src="{{ $champion->image }}" alt="{{ $champion->titre }}" class="w-full h-40 object-cover rounded mb-4">
+              @endif
+              <h3 class="text-xl font-bold mb-2">{{ $champion->titre }}</h3>
+              {{ Str::limit(strip_tags(html_entity_decode($champion->contenu)), 100) }}
+              <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
+                En savoir plus
+            </button>
+            </div>
+          @endforeach
+        </div>
+      </section>
+
+      <!-- Les dernières infos concernant le Palmarès -->
+        <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
+          <h2 class="text-2xl font-semibold text-green-600 mb-6">Les dernières infos concernant les Palmarès →</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              @foreach ($palmares as $info)
+                  <div class="border border-gray-300 rounded p-4 shadow hover:shadow-lg transition">
+                      @if ($info->image)
+                          <img src="{{ $info->image }}" alt="{{ $info->titre }}" class="w-full h-40 object-cover rounded mb-4">
+                      @endif
+                      <p class="text-gray-700 mb-4"> {{ Str::limit(strip_tags(html_entity_decode($info->description)), 100) }}</p>
+                      <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
+                        En savoir plus
+                    </button>
+                  </div>
+              @endforeach
+          </div>
+        </section>
+
 
     </main>
 </body>

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Palmares;
+use App\Models\Palmarès;
 
 class PalmaresController extends Controller
 {
     public function index()
     {
-        $palmares = Palmares::latest()->paginate(6);
+        $palmares = Palmarès::latest()->paginate(6);
         return view('palmares', compact('palmares'));
     }
 }

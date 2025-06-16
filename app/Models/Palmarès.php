@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Palmares extends Model
+class Palmarès extends Model
 {
     protected $fillable = [
         'competition',
-        'vainqueur',
+        'equipe',
         'annee',
         'image',
     ];
+
+    protected $table = 'palmares'; 
 }
