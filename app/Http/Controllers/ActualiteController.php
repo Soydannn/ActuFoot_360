@@ -8,8 +8,9 @@ class ActualiteController extends Controller
 {
     public function index()
     {
-        $actualites = Actualite::latest()->paginate(6);
-        return view('actualites', compact('actualites'));
+        $lastActu = Actualite::latest()->first();
+        $recentActus = Actualite::latest()->skip(1)->take(3)->get();
+        return view('actualites', compact('lastActu', 'recentActus'));
     }
 
     public function show($id)
