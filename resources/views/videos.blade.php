@@ -24,11 +24,10 @@
     <main class="max-w-6xl mx-auto p-6">
         <!-- Vidéos -->
         <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
-            <h2 class="text-2xl font-semibold mb-6">Retrouvez le récapitulatif des matchs →</h2>
+            <h2 class="text-2xl font-semibold mb-6">Retrouvez le récapitulatif des matchs </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @foreach ($videos as $video)
                     <div class="border border-gray-200 rounded p-4 shadow hover:shadow-lg transition">
-                        <h3 class="text-lg font-bold mb-2">{{ $video->titre }}</h3>
                         <div class="aspect-w-16 aspect-h-9 mb-3">
                             <iframe
                                 class="w-full h-48 rounded"
@@ -37,6 +36,7 @@
                                 allowfullscreen>
                             </iframe>
                         </div>
+                        <h3 class="text-m font-bold mb-2">{{ $video->Titre }}</h3>
                     </div>
                 @endforeach
             </div>
