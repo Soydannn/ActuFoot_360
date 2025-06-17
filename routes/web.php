@@ -42,6 +42,8 @@ Route::get('/nations/{id}', [NationsLeagueController::class, 'show'])->name('nat
 
 Route::get('/videos', [VideoController::class, 'index'])->name('videos');
 
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
 
 
 

@@ -9,9 +9,9 @@
 
     <!-- Header -->
     <header class="bg-white shadow p-6 text-center">
-      <div class="flex justify-center mb-4">
-        <img src="{{ asset('images/actufoot.png') }}" alt="Logo" class="h-24 w-auto">
-    </div>
+        <div class="flex justify-center mb-4">
+            <img src="{{ asset('images/actufoot.png') }}" alt="Logo" class="h-24 w-auto">
+        </div>
         <nav class="mt-4 space-x-6">
             <a href="{{ route('actualites') }}" class="text-green-600 font-sans uppercase font-bold">ACTUALITÉS</a>
             <a href="{{ route('transferts') }}" class="text-black hover:text-green-600  font-sans uppercase">TRANSFERT</a>
@@ -20,7 +20,10 @@
             <a href="{{ route('nations') }}" class="text-black hover:text-green-600  font-sans uppercase">LIGUE DES NATIONS</a>
             <a href="{{ route('videos') }}" class="text-black hover:text-green-600  font-sans uppercase">VIDÉOS</a>
         </nav>
-
+        <form action="{{ route('search') }}" method="GET" class="flex items-center space-x-2 mt-4 justify-center">
+            <input type="text" name="query" placeholder="Rechercher..." class="p-2 border rounded w-64" required>
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Rechercher</button>
+        </form>
     </header>
 
     <main class="max-w-6xl mx-auto p-6">

@@ -58,7 +58,7 @@
             </p>
 
             <div class="flex flex-wrap justify-center gap-6 text-sm mb-6">
-                <a href="{{ route('actualites') }}" class="hover:underline font-bold">Actualités</a>
+                <a href="{{ route('actualites') }}" class="hover:underline">Actualités</a>
                 <a href="{{ route('transferts') }}" class="hover:underline">Transferts</a>
                 <a href="{{ route('champions') }}" class="hover:underline">Ligue des Champions</a>
                 <a href="{{ route('palmares') }}" class="hover:underline">Palmarès</a>

@@ -32,6 +32,7 @@
 
         <div class="flex flex-col gap-4 text-lg">
             <p><span class="font-semibold">Joueur :</span> {{ $transferts->joueur }}</p>
+            <p><span class="font-semibold">Description :</span> {!! $transferts->description !!}</p>
             <p><span class="font-semibold">Ancien Club :</span> {{ $transferts->ancien_club }}</p>
             <p><span class="font-semibold">Nouveau Club :</span> {{ $transferts->nouveau_club }}</p>
             <p><span class="font-semibold">Montant :</span> {{ $transferts->montant ?? 'Non communiqué' }}</p>
@@ -59,7 +60,7 @@
             </p>
 
             <div class="flex flex-wrap justify-center gap-6 text-sm mb-6">
-                <a href="{{ route('actualites') }}" class="hover:underline font-bold">Actualités</a>
+                <a href="{{ route('actualites') }}" class="hover:underline">Actualités</a>
                 <a href="{{ route('transferts') }}" class="hover:underline">Transferts</a>
                 <a href="{{ route('champions') }}" class="hover:underline">Ligue des Champions</a>
                 <a href="{{ route('palmares') }}" class="hover:underline">Palmarès</a>
