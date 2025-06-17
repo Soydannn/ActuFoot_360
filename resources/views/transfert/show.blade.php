@@ -39,7 +39,10 @@
         </div>
 
         <div class="mt-8">
-            <a href="{{ route('transferts') }}" class="text-green-600 hover:underline text-sm">← Retour à la liste des transferts</a>
+            <a href="{{ route('actualites') }}" class="text-black-600 hover:underline text-sm">← Retour aux actualités</a>
+        </div>
+        <div class="mt-8">
+            <a href="{{ route('transferts') }}" class="text-black-600 hover:underline text-sm">← Retour à la liste des transferts</a>
         </div>
     </main>
 
