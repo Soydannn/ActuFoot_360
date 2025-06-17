@@ -15,7 +15,7 @@ class ActualiteController extends Controller
 {
     public function index()
     {
-        
+
         // Récupère la dernière actualité
 
         $lastActualite = Actualite::orderBy('created_at', 'desc')->first();

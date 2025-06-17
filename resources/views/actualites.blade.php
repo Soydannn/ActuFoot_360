@@ -50,8 +50,8 @@
 
         
         <!-- Les 3 derniers transferts -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-black-600 mb-4">Les derniers transferts →</h2>
+        <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
+            <h2 class="text-2xl font-bold text-black-600 mb-4">Les derniers transferts </h2>
             <a href="{{ route('transferts') }}" class="text-green-600 hover:underline text-sm">Voir tout →</a>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @foreach ($transferts as $transfert)
@@ -71,7 +71,7 @@
 
         <!-- Les dernières infos de la Ligue des Champions -->
       <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
-       <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos de la Ligue des Champions →</h2>
+       <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos de la Ligue des Champions </h2>
        <a href="{{ route('champions') }}" class="text-green-600 hover:underline text-sm">Voir tout →</a>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             @foreach ($champions as $champion)
@@ -91,7 +91,7 @@
 
       <!-- Les dernières infos concernant le Palmarès -->
         <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
-          <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos concernant les Palmarès →</h2>
+          <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos concernant les Palmarès </h2>
           <a href="{{ route('palmares') }}" class="text-green-600 hover:underline text-sm">Voir tout →</a>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               @foreach ($palmares as $info)
@@ -110,7 +110,7 @@
 
         <!-- Les dernières infos concernant la Ligues des Nations -->
         <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
-          <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos concernant la ligue des Nations →</h2>
+          <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos concernant la ligue des Nations </h2>
           <a href="{{ route('nations') }}" class="text-green-600 hover:underline text-sm">Voir tout →</a>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             @foreach ($nations as $nation)
@@ -130,14 +130,26 @@
 
 
 
-      <!-- Vidéos -->
-      <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
-        <h2 class="text-2xl font-semibold mb-6">Retrouvez le récapitulatif des matchs →</h2>
-        <a href="{{ route('videos') }}" class="text-green-600 hover:underline text-sm">Voir tout →</a>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        </div>
-      </section>
-
+     <!-- Vidéos -->
+     <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
+      <h2 class="text-2xl font-semibold mb-6">Retrouvez le récapitulatif des matchs </h2>
+      <a href="{{ route('videos') }}" class="text-green-600 hover:underline text-sm">Voir tout →</a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          @foreach ($videos as $video)
+              <div class="border border-gray-200 rounded p-4 shadow hover:shadow-lg transition">
+                  <div class="aspect-w-16 aspect-h-9 mb-3">
+                      <iframe
+                          class="w-full h-48 rounded"
+                          src="{{ Str::replace('watch?v=', 'embed/', $video->url) }}"
+                          frameborder="0"
+                          allowfullscreen>
+                      </iframe>
+                  </div>
+                  <h3 class="text-m font-bold mb-2">{{ $video->Titre }}</h3>
+              </div>
+          @endforeach
+      </div>
+  </section>
 
           </main>
                       <!-- Footer -->
