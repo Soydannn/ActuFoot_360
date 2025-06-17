@@ -36,9 +36,7 @@
             <p class="text-gray-700 mb-4 flex-grow">
               {{ Str::limit(strip_tags(html_entity_decode($transfert->description)), 120) }}
             </p>
-            <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
-                En savoir plus
-            </button>
+            <a class="text-green-600  px-4 py-2 rounded hover:underline" href="{{ route('transfert.show', ['id' => $transfert->id]) }}">En savoir plus</a>                    
           </article>
         @endforeach
       </div>

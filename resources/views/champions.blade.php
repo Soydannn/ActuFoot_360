@@ -34,9 +34,7 @@
                    @endif
                    <h3 class="text-xl font-bold mb-2">{{ $champion->titre }}</h3>
                    {{ Str::limit(strip_tags(html_entity_decode($champion->contenu)), 100) }}
-                   <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
-                     En savoir plus
-                 </button>
+                   <a class="text-green-600  px-4 py-2 rounded hover:underline" href="{{ route('champions.show', ['id' => $champion->id]) }}">En savoir plus</a>                    
                  </div>
                @endforeach
              </div>

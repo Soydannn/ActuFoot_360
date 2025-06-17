@@ -11,4 +11,11 @@ class PalmaresController extends Controller
         $palmares = Palmarès::latest()->paginate(9);
         return view('palmares', compact('palmares'));
     }
+
+    public function show($id)
+{
+    $palmares = Palmarès::findOrFail($id);
+    return view('palmares.show', compact('palmares'));
+}
+
 }

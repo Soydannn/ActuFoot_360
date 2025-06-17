@@ -35,9 +35,7 @@
               @endif
               <h3 class="text-xl font-bold mb-2">{{ $nation->titre }}</h3>  <!-- <-- Ajout du titre ici -->
               <p class="text-gray-700 mb-4">{{ Str::limit(strip_tags(html_entity_decode($nation->contenu)), 100) }}</p>
-              <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
-                  En savoir plus
-              </button>
+              <a class="text-green-600  px-4 py-2 rounded hover:underline" href="{{ route('nations.show', ['id' => $nation->id]) }}">En savoir plus</a>                    
           </div>
       @endforeach
         </div>

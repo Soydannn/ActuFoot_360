@@ -11,4 +11,10 @@ class ChampionsLeagueController extends Controller
         $champions = ChampionsLeague::latest()->take(9)->get();
         return view('champions', compact('champions'));
     }
+
+    public function show($id)
+{
+    $champions = ChampionsLeague::findOrFail($id);
+    return view('champions.show', compact('champions'));
+}
 }

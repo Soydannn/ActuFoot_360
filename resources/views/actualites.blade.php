@@ -62,8 +62,8 @@
                         <p class="text-gray-700">
                           {{ Str::limit(strip_tags(html_entity_decode($transfert->description)), 100) }}
                         </p>
-                        <a href="#" class="hover:underline text-green-600">En savoir plus</a>
-                    </div>
+                        <a class="text-green-600  px-4 py-2 rounded hover:underline" href="{{ route('transfert.show', ['id' => $transfert->id]) }}">En savoir plus</a>                    
+                      </div>
                 @endforeach
             </div>
         </section>
@@ -81,9 +81,7 @@
               @endif
               <h3 class="text-xl font-bold mb-2">{{ $champion->titre }}</h3>
               {{ Str::limit(strip_tags(html_entity_decode($champion->contenu)), 100) }}
-              <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
-                En savoir plus
-            </button>
+              <a class="text-green-600  px-4 py-2 rounded hover:underline" href="{{ route('champions.show', ['id' => $champion->id]) }}">En savoir plus</a>                    
             </div>
           @endforeach
         </div>
@@ -100,9 +98,7 @@
                           <img src="{{ $info->image }}" alt="{{ $info->titre }}" class="w-full h-40 object-cover rounded mb-4">
                       @endif
                       <p class="text-gray-700 mb-4"> {{ Str::limit(strip_tags(html_entity_decode($info->description)), 100) }}</p>
-                      <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
-                        En savoir plus
-                    </button>
+                      <a class="text-green-600  px-4 py-2 rounded hover:underline" href="{{ route('palmares.show', ['id' => $info->id]) }}">En savoir plus</a>                    
                   </div>
               @endforeach
           </div>
@@ -120,9 +116,7 @@
                 @endif
                 <h3 class="text-xl font-bold mb-2">{{ $nation->titre }}</h3>  <!-- <-- Ajout du titre ici -->
                 <p class="text-gray-700 mb-4">{{ Str::limit(strip_tags(html_entity_decode($nation->contenu)), 100) }}</p>
-                <button type="button" class="text-green-600  px-4 py-2 rounded hover:underline">
-                    En savoir plus
-                </button>
+                <a class="text-green-600  px-4 py-2 rounded hover:underline" href="{{ route('nations.show', ['id' => $nation->id]) }}">En savoir plus</a>                    
             </div>
         @endforeach
           </div>
