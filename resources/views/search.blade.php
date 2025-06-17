@@ -13,7 +13,7 @@
             <img src="{{ asset('images/actufoot.png') }}" alt="Logo" class="h-24 w-auto">
         </div>
         <nav class="mt-4 space-x-6">
-            <a href="{{ route('actualites') }}" class="text-green-600 font-sans uppercase font-bold">ACTUALITÉS</a>
+            <a href="{{ route('actualites') }}" class="text-black hover:text-green-600  font-sans uppercase">ACTUALITÉS</a>
             <a href="{{ route('transferts') }}" class="text-black hover:text-green-600  font-sans uppercase">TRANSFERT</a>
             <a href="{{ route('champions') }}" class="text-black hover:text-green-600 font-sans uppercase">LIGUE DES CHAMPIONS</a>
             <a href="{{ route('palmares') }}" class="text-black hover:text-green-600 font-sans uppercase">PALMARÈS</a>

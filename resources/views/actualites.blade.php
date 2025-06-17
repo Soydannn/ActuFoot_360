@@ -44,7 +44,7 @@
         <p class="mb-4">
             {{ Str::limit(strip_tags(html_entity_decode($lastArticle->contenu ?? $lastArticle->description ?? ''), 150)) }}
         </p>
-        <a class="text-green-600  px-4 py-2 rounded hover:underline" href="{{ route('transfert.show', ['id' => $lastArticle->id]) }}">En savoir plus</a>                    
+        <a class="text-green-600  px-4 py-2 rounded hover:underline" href="{{ route('nations.show', ['id' => $lastArticle->id]) }}">En savoir plus</a>                    
     </div>
 </section>
 @endif
