@@ -20,6 +20,7 @@
             <a href="{{ route('nations') }}" class="text-black hover:text-green-600  font-sans uppercase">LIGUE DES NATIONS</a>
             <a href="{{ route('videos') }}" class="text-black hover:text-green-600  font-sans uppercase">VIDÉOS</a>
         </nav>
+
     </header>
 
     <main class="max-w-6xl mx-auto p-6">
@@ -28,7 +29,6 @@
         @if ($lastArticle)
         <section class="mb-12">
         <h2 class="text-2xl font-bold text-black-600 mb-4">À la une</h2>
-        <a href="/actualites" class="text-green-600 hover:underline text-sm">Voir tout →</a>
         <div class="bg-white shadow p-6 rounded-lg">
         @if (!empty($lastArticle->image))
             <img src="{{ $lastArticle->image }}" alt="{{ $lastArticle->titre }}" class="w-full h-full object-cover mb-4 rounded" />
@@ -92,7 +92,7 @@
       <!-- Les dernières infos concernant le Palmarès -->
         <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
           <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos concernant les Palmarès →</h2>
-          <a href="/actualites" class="text-green-600 hover:underline text-sm">Voir tout →</a>
+          <a href="{{ route('palmares') }}" class="text-green-600 hover:underline text-sm">Voir tout →</a>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               @foreach ($palmares as $info)
                   <div class="border border-gray-300 rounded p-4 shadow hover:shadow-lg transition">
@@ -111,7 +111,7 @@
         <!-- Les dernières infos concernant la Ligues des Nations -->
         <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
           <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos concernant la ligue des Nations →</h2>
-          <a href="/actualites" class="text-green-600 hover:underline text-sm">Voir tout →</a>
+          <a href="{{ route('nations') }}" class="text-green-600 hover:underline text-sm">Voir tout →</a>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             @foreach ($nations as $nation)
             <div class="border border-gray-300 rounded p-4 shadow hover:shadow-lg transition">
@@ -132,8 +132,8 @@
 
       <!-- Vidéos -->
       <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
-        <h2 class="text-2xl font-semibold mb-6">Vidéos →</h2>
-        <a href="/actualites" class="text-green-600 hover:underline text-sm">Voir tout →</a>
+        <h2 class="text-2xl font-semibold mb-6">Retrouvez le récapitulatif des matchs →</h2>
+        <a href="{{ route('videos') }}" class="text-green-600 hover:underline text-sm">Voir tout →</a>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         </div>
       </section>
@@ -155,12 +155,12 @@
 
           <!-- Navigation -->
           <div class="flex flex-wrap justify-center gap-6 text-sm mb-6">
-            <a href="/" class="hover:underline">Actualités</a>
-            <a href="/transfert" class="hover:underline">Transferts</a>
-            <a href="/champions-league" class="hover:underline">Ligue des Champions</a>
-            <a href="/palmares" class="hover:underline">Palmarès</a>
-            <a href="/nations-league" class="hover:underline">Ligue des Nations</a>
-            <a href="/videos" class="hover:underline">Vidéos</a>
+            <a href="{{ route('actualites') }}" class="hover:underline font-bold">Actualités</a>
+            <a href="{{ route('transferts') }}" class="hover:underline">Transferts</a>
+            <a href="{{ route('champions') }}" class="hover:underline">Ligue des Champions</a>
+            <a href="{{ route('palmares') }}" class="hover:underline">Palmarès</a>
+            <a href="{{ route('nations') }}" class="hover:underline">Ligue des Nations</a>
+            <a href="{{ route('videos') }}" class="hover:underline">Vidéos</a>
           </div>
 
           <!-- Réseaux sociaux -->

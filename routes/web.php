@@ -8,6 +8,7 @@ use App\Http\Controllers\PalmaresController;
 use App\Http\Controllers\ChampionsLeagueController;
 use App\Http\Controllers\NationsLeagueController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,8 @@ Route::get('/champions', [ChampionsLeagueController::class, 'index'])->name('cha
 Route::get('/nations', [NationsLeagueController::class, 'index'])->name('nations');
 
 Route::get('/videos', [VideoController::class, 'index'])->name('videos');
+
+
 
 
 

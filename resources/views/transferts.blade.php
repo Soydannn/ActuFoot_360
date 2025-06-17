@@ -24,7 +24,7 @@
 
     <main class="max-w-6xl mx-auto p-6">
 
-      <h1 class="text-3xl font-bold mb-8 text-center">Les derniers transferts</h1>
+      <h1 class="text-3xl font-bold mb-8 text-center">Bievenue dans la page qui présente les transferts durant l'été 2025</h1>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         @foreach ($transferts as $transfert)
@@ -59,12 +59,12 @@
         </p>
 
         <div class="flex flex-wrap justify-center gap-6 text-sm mb-6">
-          <a href="/" class="hover:underline">Actualités</a>
-          <a href="/transfert" class="hover:underline font-bold">Transferts</a>
-          <a href="/champions-league" class="hover:underline">Ligue des Champions</a>
-          <a href="/palmares" class="hover:underline">Palmarès</a>
-          <a href="/nations-league" class="hover:underline">Ligue des Nations</a>
-          <a href="/videos" class="hover:underline">Vidéos</a>
+          <a href="{{ route('actualites') }}" class="hover:underline">Actualités</a>
+          <a href="{{ route('transferts') }}" class="hover:underline font-bold">Transferts</a>
+          <a href="{{ route('champions') }}" class="hover:underline">Ligue des Champions</a>
+          <a href="{{ route('palmares') }}" class="hover:underline">Palmarès</a>
+          <a href="{{ route('nations') }}" class="hover:underline">Ligue des Nations</a>
+          <a href="{{ route('videos') }}" class="hover:underline">Vidéos</a>
         </div>
 
         <div class="flex justify-center space-x-6 text-sm mb-6">

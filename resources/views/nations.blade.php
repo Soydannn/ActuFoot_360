@@ -26,8 +26,7 @@
 
        <!-- Les dernières infos concernant la Ligues des Nations -->
        <section class="max-w-6xl mx-auto px-4 py-8 bg-white rounded shadow mt-8">
-        <h2 class="text-2xl font-semibold text-black-600 mb-6">Les dernières infos concernant la ligue des Nations →</h2>
-        <a href="/actualites" class="text-green-600 hover:underline text-sm">Voir tout →</a>
+        <h2 class="text-2xl font-semibold text-black-600 mb-6">Bienvenue dans la page concernant les actualités de la League des nations </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           @foreach ($nations as $nation)
           <div class="border border-gray-300 rounded p-4 shadow hover:shadow-lg transition">
@@ -59,12 +58,12 @@
         </p>
 
         <div class="flex flex-wrap justify-center gap-6 text-sm mb-6">
-          <a href="/" class="hover:underline">Actualités</a>
-          <a href="/transfert" class="hover:underline font-bold">Transferts</a>
-          <a href="/champions-league" class="hover:underline">Ligue des Champions</a>
-          <a href="/palmares" class="hover:underline">Palmarès</a>
-          <a href="/nations-league" class="hover:underline">Ligue des Nations</a>
-          <a href="/videos" class="hover:underline">Vidéos</a>
+          <a href="{{ route('actualites') }}" class="hover:underline">Actualités</a>
+          <a href="{{ route('transferts') }}" class="hover:underline ">Transferts</a>
+          <a href="{{ route('champions') }}" class="hover:underline">Ligue des Champions</a>
+          <a href="{{ route('palmares') }}" class="hover:underline">Palmarès</a>
+          <a href="{{ route('nations') }}" class="hover:underline font-bold">Ligue des Nations</a>
+          <a href="{{ route('videos') }}" class="hover:underline">Vidéos</a>
         </div>
 
         <div class="flex justify-center space-x-6 text-sm mb-6">
