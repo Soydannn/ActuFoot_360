@@ -14,10 +14,10 @@
         </div>
         <nav class="mt-4 space-x-6">
             <a href="{{ route('actualites') }}" class="text-black hover:text-green-600 font-sans uppercase">ACTUALITÉS</a>
-            <a href="{{ route('transferts') }}" class="text-green-600 font-bold font-sans uppercase">TRANSFERT</a>
+            <a href="{{ route('transferts') }}" class="text-black hover:text-green-600 font-sans uppercase">TRANSFERT</a>
             <a href="{{ route('champions') }}" class="text-black hover:text-green-600 font-sans uppercase">LIGUE DES CHAMPIONS</a>
             <a href="{{ route('palmares') }}" class="text-black hover:text-green-600 font-sans uppercase">PALMARÈS</a>
-            <a href="{{ route('nations') }}" class="text-black hover:text-green-600 font-sans uppercase">LIGUE DES NATIONS</a>
+            <a href="{{ route('nations') }}" class="text-green-600 font-bold font-sans uppercase">LIGUE DES NATIONS</a>
             <a href="{{ route('videos') }}" class="text-black hover:text-green-600 font-sans uppercase">VIDÉOS</a>
         </nav>
     </header>
