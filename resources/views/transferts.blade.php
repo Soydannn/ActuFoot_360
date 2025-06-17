@@ -43,9 +43,11 @@
         @endforeach
       </div>
 
-
+      <div class="flex justify-between mt-8">
+        <a href="{{ route('actualites') }}" class="text-black-600 hover:underline">← Page précédente</a>
+        <a href="{{ route('champions') }}" class="text-bkack-600 hover:underline">Page suivante →</a>
+    </div>
     </main>
-
     <!-- Footer -->
     <footer class="bg-white shadow mt-16">
       <div class="max-w-4xl mx-auto px-6 py-10 text-center text-gray-700 flex flex-col items-center">
