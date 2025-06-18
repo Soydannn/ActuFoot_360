@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <title>{{ $transferts->joueur }} - Transfert | ActuFoot360</title>
+    <title>ActuFoot360</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-900">
@@ -13,13 +13,17 @@
             <img src="{{ asset('images/actufoot.png') }}" alt="Logo" class="h-24 w-auto">
         </div>
         <nav class="mt-4 space-x-6">
-            <a href="{{ route('actualites') }}" class="text-black hover:text-green-600 font-sans uppercase">ACTUALITÉS</a>
-            <a href="{{ route('transferts') }}" class="text-green-600 font-bold font-sans uppercase">TRANSFERT</a>
+            <a href="{{ route('actualites') }}" class="text-black font-sans uppercase">ACTUALITÉS</a>
+            <a href="{{ route('transferts') }}" class="text-green-600 font-sans uppercase font-bold">TRANSFERT</a>
             <a href="{{ route('champions') }}" class="text-black hover:text-green-600 font-sans uppercase">LIGUE DES CHAMPIONS</a>
             <a href="{{ route('palmares') }}" class="text-black hover:text-green-600 font-sans uppercase">PALMARÈS</a>
-            <a href="{{ route('nations') }}" class="text-black hover:text-green-600 font-sans uppercase">LIGUE DES NATIONS</a>
-            <a href="{{ route('videos') }}" class="text-black hover:text-green-600 font-sans uppercase">VIDÉOS</a>
+            <a href="{{ route('nations') }}" class="text-black hover:text-green-600  font-sans uppercase">LIGUE DES NATIONS</a>
+            <a href="{{ route('videos') }}" class="text-black hover:text-green-600  font-sans uppercase">VIDÉOS</a>
         </nav>
+        <form action="{{ route('search') }}" method="GET" class="flex items-center space-x-2 mt-4 justify-center">
+            <input type="text" name="query" placeholder="Rechercher..." class="p-2 border rounded w-64" required>
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Rechercher</button>
+        </form>
     </header>
 
     <!-- Contenu principal -->
@@ -61,7 +65,7 @@
 
             <div class="flex flex-wrap justify-center gap-6 text-sm mb-6">
                 <a href="{{ route('actualites') }}" class="hover:underline">Actualités</a>
-                <a href="{{ route('transferts') }}" class="hover:underline">Transferts</a>
+                <a href="{{ route('transferts') }}" class="hover:underline font-bold">Transferts</a>
                 <a href="{{ route('champions') }}" class="hover:underline">Ligue des Champions</a>
                 <a href="{{ route('palmares') }}" class="hover:underline">Palmarès</a>
                 <a href="{{ route('nations') }}" class="hover:underline">Ligue des Nations</a>
